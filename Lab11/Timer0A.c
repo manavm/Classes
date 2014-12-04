@@ -70,6 +70,7 @@ void Timer0A_Init(uint32_t period){long sr;
 uint16_t Time;
 int counter = 0;
 void Timer0A_Handler(void){
+
   counter++;
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
 	if(counter==270){

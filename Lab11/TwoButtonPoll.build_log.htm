@@ -3,18 +3,31 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Keil\ARM\Examples\LaunchPadware\Lab11(Protoboard)\TwoButtonPoll.uvproj
-Project File Date:  12/01/2014
+C:\Keil\ARM\Examples\LaunchPadware\Lab11REMASTERED\TwoButtonPoll.uvproj
+Project File Date:  12/03/2014
 
 <h2>Output:</h2>
 Rebuild target 'TwoButtonPoll'
 assembling startup.s...
 compiling DAC.c...
+DAC.c(101): warning:  #1-D: last line of file ends without a newline
+  } 
+DAC.c: 1 warning, 0 errors
 compiling Lab5.c...
 compiling Music.c...
+Music.c(26): warning:  #223-D: function "plotImage" declared implicitly
+                        plotImage();
+Music.c(31): warning:  #223-D: function "plotImage" declared implicitly
+                        plotImage();
+Music.c(38): warning:  #223-D: function "plotImage" declared implicitly
+                        plotImage();
+Music.c(45): warning:  #223-D: function "plotImage" declared implicitly
+                        plotImage();
+Music.c(52): warning:  #223-D: function "plotImage" declared implicitly
+                        plotImage();
 Music.c(21): warning:  #550-D: variable "testInstr" was set but never used
                 const unsigned short *testInstr;
-Music.c: 1 warning, 0 errors
+Music.c: 6 warnings, 0 errors
 compiling PLL.c...
 compiling ST7735.c...
 compiling Switch.c...
@@ -22,22 +35,22 @@ compiling Timer0A.c...
 compiling SysTick.c...
 compiling Timer1A.c...
 compiling plotImage.c...
+plotImage.c(302): warning:  #1-D: last line of file ends without a newline
+  }
+plotImage.c: 1 warning, 0 errors
 linking...
-.\TwoButtonPoll.axf: Error: L6200E: Symbol Flute multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol Trumpet multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol Wave multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol strobePtr multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol Horn multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol dt multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol demo multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol demo1 multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol strobe multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol fur_elise multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol furElisePtr multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol demoPtr multiply defined (by plotimage.o and music.o).
-.\TwoButtonPoll.axf: Error: L6200E: Symbol demo1Ptr multiply defined (by plotimage.o and music.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 13 error messages.
-".\TwoButtonPoll.axf" - 13 Error(s), 1 Warning(s).
-Target not created
+Program Size: Code=7152 RO-data=2436 RW-data=1332 ZI-data=1348  
+".\TwoButtonPoll.axf" - 0 Error(s), 8 Warning(s).
+Load "C:\\Keil\\ARM\\Examples\\LaunchPadware\\Lab11REMASTERED\\TwoButtonPoll.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+</pre>
+</body>
+</html>
+are\\Lab11REMASTERED\\TwoButtonPoll.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.

@@ -1,3 +1,7 @@
+#include "ST7735.h"
+#include "math.h"
+#include "stdlib.h"
+
 int count = 0;
 int ycoord = 0;
 int height = 70;
@@ -276,10 +280,3 @@ void plotImage(void){
 	}
 }
 
-int main(void){
-	PLL_Init();
-  ST7735_InitR(INITR_REDTAB);
-	while(1){
-		plotImage();
-	}
-}

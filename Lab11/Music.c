@@ -23,42 +23,45 @@ void Music_Play(const unsigned short *instrument, int instrumentSize, const stru
 		
 	while(1){
 		if(play){
+			plotImage();
 			pause=1-pause;
 			resetSwitches();
 		}
 		if(aNote){
+			plotImage();
 			demoPtr->notes[noteIndex] = 1776;
 			demoPtr->duration[noteIndex] = 10000;
 			lenPush = 1;
 			aNote = 0;
 		}
 		if(fNote){
+			plotImage();
 			demoPtr->notes[noteIndex] = 2237;
 			demoPtr->duration[noteIndex] = 10000;
-			lenPush = 1;
+			lenPush = 1;	
 			fNote = 0;
 		}
 		if(bNote){
+			plotImage();
 			demoPtr->notes[noteIndex] = 1582;
 			demoPtr->duration[noteIndex] = 10000;
 			lenPush = 1;
 			bNote = 0;
 		}
 		if(eNote){
+			plotImage();
 			demoPtr->notes[noteIndex] = 2370;
-			demoPtr->duration[noteIndex] = 10000;
 			lenPush = 1;
 			eNote = 0;
 		}
 		
 		if(lenPush&&!pause){
 			Timer0A_Init(demoPtr->duration[noteIndex]);
-			Timer1A_Init(demoPtr->duration[noteIndex]);
 			//SysTick_Init(402000/(song->notes[noteIndex]));
 			//SysTick_Init(402000/(furElisePtr->notes[noteIndex]));
 			SysTick_Init(402000/(demoPtr->notes[noteIndex]));
 			//SysTick_Init(402000/(demo1Ptr->notes[noteIndex])); 			
-			noteIndex=(noteIndex+1)%(songSize-34);
+			noteIndex=(noteIndex+1)%(songSize);
 		}
 		if(notePush&&!pause){
 			notePush=0;

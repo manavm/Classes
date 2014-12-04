@@ -35,120 +35,49 @@ void HeartBeat_Init(void){
 
 
 extern unsigned short Time;
-//debug code
+
 	
 int main(void){
-	  PolledButtons_Init();       // initialize interrupts and ports
-		Output_Init();
-		DAC_Init(1024);
-		Board_Init();
-	while(1){
-		plotImage();
-	}
-}
-
-int main1(void){
-	//PLL_Init(); //16MHZ bus clock //when PLL is on, nothing works
 	HeartBeat_Init();
-	//SysTick_Init();
   PolledButtons_Init();       // initialize interrupts and ports
 	DAC_Init(1024);							// initialize with command: Vout = Vref
-//	DAC_Init(0x1000);                  // initialize with command: Vout = Vref
 	//Timer0A_Init(dt[0]);
 	Board_Init();		//Initalize the On Board Switches
 	Switch_Init2(); //i used the board switches because our switches were doing the thing
 							//where they worked for a bit then they stopped working again
 	lenPush = 1;
 	int instrument = 0;
-
-			
+  ST7735_InitR(INITR_REDTAB);	
 			
 	while(1){
+		plotImage();
 		if(mode){
 			resetSwitches();	
 			
 			if (instrument == 0){
-				Music_Play(Wave[0], 32, strobePtr, 23);	
+				Music_Play(Wave[0], 32, strobePtr, 35);	
 				instrument += 1;
 			}
 			else if (instrument == 1){
-				Music_Play(Trumpet[0], 32, strobePtr, 23);
+				Music_Play(Trumpet[0], 32, strobePtr, 35);
 				instrument += 1;
 			}
 			else if (instrument == 2){
-				Music_Play(Flute[0], 32, strobePtr, 23);
+				Music_Play(Flute[0], 32, strobePtr, 35);
 				instrument = 0;
 			}
 		}
 		else if(play){
 			resetSwitches();
 			if (instrument == 0){
-				Music_Play(Wave[0], 64, strobePtr, 23);		
+				Music_Play(Wave[0], 64, strobePtr, 35);		
 			}
 			if (instrument == 1){
-				Music_Play(Trumpet[0], 32, strobePtr, 23);
+				Music_Play(Trumpet[0], 32, strobePtr, 35);
 			}
 			if (instrument == 2){
-				Music_Play(Flute[0], 32, strobePtr, 23);
+				Music_Play(Flute[0], 32, strobePtr, 35);
 			}
 		}
 	}
 }
-
-		/*
-		GPIO_PORTF_DATA_R = GPIO_PORTF_DATA_R^0x04;	//heartbeat, feel free to move around for debugging purposes
-		
-    if(play){
-			//		resetSwitches();		//can't just reset all the switches because then it doesn't continue to play, need a seperate pause button
-			if(trump == 1){
-			Music_Play(Trumpet[0], 32, strobePtr, 21);
-			}
-			else if( hor == 1){	
-			Music_Play(Horn[0], 32, strobePtr, 21);		
-			}
-			else if(flut == 1){
-			Music_Play(Flute[0], 32, strobePtr, 21);	
-			}	
-			
-		}
-		if(rewind){ //button to rewind (currently does not work)
-			resetSwitches();}
-		
-		if(pause){ //button to pause (currently does not work)
-		play = 0;
-		pause = 0;
-		}
-		
-		if(mode){	//code to toggle between modes
-			if(trump == 1){
-				trump = 0;
-				hor = 1;}
-					else if( hor == 1){
-					hor = 0;
-					flut = 1;}
-						else if(flut == 1){
-						flut = 0;
-						trump = 1;}	
-			mode = 0;
-		}
-		*/
-
-
-		/*
-	 DAC_Out(Horn[Time&0x1F]);
-    Time = Time + 1;
-		SysTick_Wait(dt[Time&0x1F]);    
-		*/
-	
-    // calculated frequencies are not exact, due to the impreciseness of delay loops
-    // assumes using 16 MHz PIOSC (default setting for clock source)
-    // maximum frequency with 16 MHz PIOSC: (8,000,000 bits/1 sec)*(1 sample/16 bits)*(1 wave/32 sample) = 15,625 Hz
-    // maximum frequency with 20 MHz PLL: (10,000,000 bits/1 sec)*(1 sample/16 bits)*(1 wave/32 sample) = 19,531.25 Hz
-//    SysTick_Wait(0);                 // ?? kHz sine wave (actually 12,000 Hz)
-//    SysTick_Wait(9);                 // 55.6 kHz sine wave (actually 10,000 Hz)
-//    SysTick_Wait(15);                // 33.3 kHz sine wave (actually 8,500 Hz)
-//    SysTick_Wait(19);                // 26.3 kHz sine wave (actually 8,500 Hz)
-//    SysTick_Wait(64);                // 7.81 kHz sine wave (actually 4,800 Hz)
-//    SysTick_Wait(99);                // 5.05 kHz sine wave (actually 3,500 Hz)
-//    SysTick_Wait(1136);              // 440 Hz sine wave (actually 420 Hz)
-
