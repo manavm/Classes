@@ -1,0 +1,36 @@
+Dependencies for Project 'PWM', Target 'PWM': (DO NOT MODIFY !)
+F (.\startup.s)(0x51982B6A)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\PLL.c)(0x53E939D6)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (PLL.h)(0x53E939E0)
+F (.\PWM.c)(0x542872DA)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pwm.o --omf_browse .\pwm.crf --depend .\pwm.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C86004)
+I (..\inc/tm4c123gh6pm.h)(0x53E64D0A)
+F (.\tach.c)(0x542B139F)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\tach.o --omf_browse .\tach.crf --depend .\tach.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C86004)
+I (..\inc/tm4c123gh6pm.h)(0x53E64D0A)
+I (PLL.h)(0x53E939E0)
+F (.\Switch.c)(0x542F56AC)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\switch.o --omf_browse .\switch.crf --depend .\switch.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C86004)
+I (..\inc/tm4c123gh6pm.h)(0x53E64D0A)
+I (ST7735.h)(0x54164E0C)
+F (.\Lab4.c)(0x542F573B)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\lab4.o --omf_browse .\lab4.crf --depend .\lab4.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C86004)
+I (PLL.h)(0x53E939E0)
+I (PWM.h)(0x53E9398E)
+I (motor.h)(0x542B1088)
+I (Switch.h)(0x5426EE02)
+I (tach.h)(0x5422F815)
+I (..\inc/tm4c123gh6pm.h)(0x53E64D0A)
+I (ST7735.h)(0x54164E0C)
+F (.\tach.h)(0x5422F815)()
+F (.\Switch.h)(0x5426EE02)()
+F (.\motor.h)(0x542B1088)()
+F (.\ST7735.c)(0x54270500)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\st7735.o --omf_browse .\st7735.crf --depend .\st7735.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C86004)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C86004)
+I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C86004)
+I (ST7735.h)(0x54164E0C)
+I (..\inc/tm4c123gh6pm.h)(0x53E64D0A)
+F (.\motor.c)(0x542F5749)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\motor.o --omf_browse .\motor.crf --depend .\motor.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C86004)
+I (..\inc/tm4c123gh6pm.h)(0x53E64D0A)
