@@ -1,0 +1,18 @@
+Design Consistency Status Report
+--------------------------------
+
+Report File    : C:\Users\Nick\Dropbox\VALVANO 445L (1)\Lab7\~Lab7_Nick_Manav (PCB - Design Consistency Status Report).txt
+Report Written : Wednesday, October 29, 2014
+Design Path    : C:\Users\Nick\Dropbox\VALVANO 445L (1)\Lab7\~Lab7_Nick_Manav.pcb
+Design Title   : 
+Created        : 9/11/2009 11:58:24 AM
+Last Saved     : 10/29/2014 4:08:42 PM
+Editing Time   : 8488 min
+Units          : mil (precision 0)
+
+
+Checking integrity of Schematic "C:\Users\Nick\Dropbox\VALVANO 445L (1)\Lab7\~Lab7_Nick_Manav.sch" with PCB "C:\Users\Nick\Dropbox\VALVANO 445L (1)\Lab7\~Lab7_Nick_Manav.pcb"
+==============================================================================================================================================================================
+
+
+End Of Report.

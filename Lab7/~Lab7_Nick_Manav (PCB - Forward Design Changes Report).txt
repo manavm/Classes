@@ -1,0 +1,32 @@
+Forward Design Changes Report
+-----------------------------
+
+Report File    : C:\Users\Nick\Dropbox\VALVANO 445L (1)\Lab7\~Lab7_Nick_Manav (PCB - Forward Design Changes Report).txt
+Report Written : Wednesday, October 29, 2014
+Design Path    : C:\Users\Nick\Dropbox\VALVANO 445L (1)\Lab7\~Lab7_Nick_Manav.pcb
+Design Title   : 
+Created        : 9/11/2009 11:58:24 AM
+Last Saved     : 10/29/2014 4:08:42 PM
+Editing Time   : 8488 min
+Units          : mil (precision 0)
+
+Disconnected pin "R10-2" from net "GND".
+
+Added net "between1".
+
+Added component reference "R13" of component "0.25Wresistor", package "DIP".
+Added value "Manufacturer=" to component reference "R13".
+
+Added value "Manufacturer Part Number=" to component reference "R13".
+
+Added value "Distributor=" to component reference "R13".
+
+Added value "Distributor Part Number=" to component reference "R13".
+
+
+Connected pin "R10-2" to net "between1".
+Connected pin "R13-1" to net "between1".
+Connected pin "R13-2" to net "GND".
+
+
+End Of Report.

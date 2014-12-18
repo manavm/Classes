@@ -1,0 +1,61 @@
+Design Rule Check Report
+------------------------
+
+Report File    : C:\Users\Nick\Dropbox\VALVANO 445L (1)\Lab7\~Lab7_Nick_Manav (PCB - Design Rule Check Report).txt
+Report Written : Wednesday, October 29, 2014
+Design Path    : C:\Users\Nick\Dropbox\VALVANO 445L (1)\Lab7\~Lab7_Nick_Manav.pcb
+Design Title   : 
+Created        : 9/11/2009 11:58:24 AM
+Last Saved     : 10/29/2014 4:24:51 PM
+Editing Time   : 8494 min
+Units          : mil (precision 0)
+
+
+Results
+=======
+
+
+No errors found
+
+
+Settings
+========
+
+
+Spacings
+
+=========
+
+Tracks         Yes
+Pads and Vias  Yes
+Shapes         Yes
+Text           Yes
+Board          Yes
+Drills         Yes
+Components     No
+
+
+Manufacturing
+
+==============
+
+Min Drill Hole Size   Yes
+Min Track Width       Yes
+Min Annular Ring      Yes
+Copper Text In Board  Yes
+Mirrored Text         Yes
+Routing Areas         No
+Drill Breakout        Yes
+
+
+Nets
+
+=====
+
+Net Completion                Yes
+Dangling Tracks               Yes
+Net Track Length Differences  No
+
+
+
+End Of Report.

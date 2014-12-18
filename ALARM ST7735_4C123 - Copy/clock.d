@@ -1,0 +1,9 @@
+.\clock.o: Clock.c
+.\clock.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\clock.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\clock.o: ST7735.h
+.\clock.o: PLL.h
+.\clock.o: LCD.h
+.\clock.o: ..\inc/tm4c123gh6pm.h
+.\clock.o: switch.h
+.\clock.o: PWM.h
