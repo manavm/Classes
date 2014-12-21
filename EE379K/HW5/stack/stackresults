@@ -1,0 +1,107 @@
+For 6 threads:
+
+For a lock free stack:
+Execution time is:107ms
+Latency time is:0.00428ms
+Throughput:23364.48598130841 operations per second
+
+For a lock free stack using an elimination array:
+Execution time is:98ms
+Latency time is:0.00392ms
+Throughput:25510.204081632655 operations per second
+
+For a lock based stack:
+Execution time is:22ms
+Latency time is:8.8E-4ms
+Throughput:113636.36363636363 operations per second
+----------------------------------------------------
+
+For 5 threads:
+
+For a lock free stack:
+Execution time is:92ms
+Latency time is:0.00368ms
+Throughput:27173.913043478264 operations per second
+
+For a lock free stack using an elimination array:
+Execution time is:92ms
+Latency time is:0.00368ms
+Throughput:27173.913043478264 operations per second
+
+For a lock based stack:
+Execution time is:32ms
+Latency time is:0.00128ms
+Throughput:78125.0 operations per second
+----------------------------------------------------
+
+For 4 threads:
+
+For a lock free stack:
+Execution time is:67ms
+Latency time is:0.00268ms
+Throughput:37313.432835820895 operations per second
+
+For a lock free stack using an elimination array:
+Execution time is:6ms
+Latency time is:2.4E-4ms
+Throughput:416666.6666666667 operations per second
+
+For a lock based stack:
+Execution time is:30ms
+Latency time is:0.0012ms
+Throughput:83333.33333333334 operations per second
+----------------------------------------------------
+
+For 3 threads:
+
+For a lock free stack:
+Execution time is:77ms
+Latency time is:0.00308ms
+Throughput:32467.53246753247 operations per second
+
+For a lock free stack using an elimination array:
+Execution time is:22ms
+Latency time is:8.8E-4ms
+Throughput:113636.36363636363 operations per second
+
+For a lock based stack:
+Execution time is:22ms
+Latency time is:8.8E-4ms
+Throughput:113636.36363636363 operations per second
+----------------------------------------------------
+
+For 2 threads:
+
+For a lock free stack:
+Execution time is:56ms
+Latency time is:0.00224ms
+Throughput:44642.857142857145 operations per second
+
+For a lock free stack using an elimination array:
+Execution time is:10ms
+Latency time is:4.0E-4ms
+Throughput:250000.0 operations per second
+
+For a lock based stack:
+Execution time is:24ms
+Latency time is:9.6E-4ms
+Throughput:104166.66666666667 operations per second
+----------------------------------------------------
+
+For 1 threads:
+
+For a lock free stack:
+Execution time is:24ms
+Latency time is:9.6E-4ms
+Throughput:104166.66666666667 operations per second
+
+For a lock free stack using an elimination array:
+Execution time is:3ms
+Latency time is:1.2E-4ms
+Throughput:833333.3333333334 operations per second
+
+For a lock based stack:
+Execution time is:19ms
+Latency time is:7.6E-4ms
+Throughput:131578.94736842107 operations per second
+----------------------------------------------------
