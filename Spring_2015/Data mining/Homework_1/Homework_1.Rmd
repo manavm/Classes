@@ -1,0 +1,117 @@
+```{r global_options, include=FALSE}
+library(MASS)
+library(knitr)
+opts_chunk$set(fig.align="center", fig.height=3, fig.width=4)
+library(ggplot2)
+theme_set(theme_bw(base_size=12))
+library(dplyr)
+```
+
+---
+title: "Homework 1"
+output: html_document
+---
+
+Manav Mandhani, mm58926
+
+1. (1 point) Consider two binary vectors u and v. Suppose the total number of ones in both the binary vectors together is n; and that dot product of the two vectors is d. What is the Jaccard similarity of u and v?
+
+d/n
+
+2. (1 point) Let ei denote the vector of length n which has 1 at index i and 0 elsewhere. What is the cosine similarity between the vectors ei and ej when (i) i = j? (ii) i = j?
+
+If i = j, cosine similarity is 1/1 = 1
+If i != j, cosine similarity is 0/1 = 0
+
+(a) How many rows and columns are there in this data set? What do the rows and columns represent? 
+
+The data has 506 rows and 14 columns. 
+
+Each row represents one object unit representing one suburb and the columns represent different housing values for each suburb
+
+(b) Make some pairwise scatterplots of the attributes (columns) in this data set. Describe your ﬁndings. 
+
+```{r}
+ggplot(Boston, aes(x = age, y = indus)) + geom_point()
+ggplot(Boston, aes(x = lstat, y = medv)) + geom_point()
+```
+
+For both these plots there is some sort of a dependency between the attributes. 
+
+For the first plot, as the age increases, the proportion of non-retail business acres remains constant until a certain age but increaeses after a certain age.
+
+For the second plot, the median value of owner-occupied homes gradually decreases as the percent of population in lower-status increases.
+
+(c) From the scatterplots, can you identify any attribute that is associated with per-capita crime rate? 
+
+```{r}
+ggplot(Boston, aes(x = crim, y = medv)) + geom_point()
+```
+
+There isn't a strong association with any such attribute but crime is seen to increases as the median value of owner-occupied homes decreases
+
+(d) Do any of the suburbs of Boston appear to have particularly high crime rates? Do any have particularly high pupil-teacher ratios? 
+
+```{r}
+ggplot(Boston, aes(x = crim, y = black)) + geom_point()
+Boston %>% arrange(desc(crim)) -> boston.crime
+slice(boston.crime, 1:10)
+
+ggplot(Boston, aes(x = ptratio, y = indus)) + geom_point()
+Boston %>% arrange(desc(ptratio)) -> boston.ptratio
+slice(boston.ptratio, 1:10)
+```
+
+Yes, there are certain neighborhoods that have rates as high as 88.97 and 73.53 which is much more than the average crime rate.
+
+However, there seems to be an even spread on pupil teacher ratio across suburbs
+
+(e) How many suburbs in this data set bound the Charles river? 
+
+```{r}
+Boston %>% filter(chas == 1) %>% nrow()
+```
+
+35 suburbs
+
+(f) What is the median pupil-teacher ratio among the towns in this data set? 
+
+```{r}
+Boston %>% summarize(median.ptr = median(ptratio))
+```
+
+Median pupil-teacher ratio is 19.05
+
+(g) In this dataset, which suburb of Boston has the lowest median value of owner-occupied homes? What are the values of the other attributes for this suburb, and how do those values compare to the overall range for those attributes?
+
+```{r}
+Boston %>% arrange(medv) %>% slice(1) -> boston.lowest.median
+boston.lowest.median
+boston.lowest.median <- boston.lowest.median[, -14]
+crim <- c(range(Boston$crim)[1], range(Boston$crim)[2])
+zn <- c(range(Boston$zn)[1], range(Boston$zn)[2])
+indus <- c(range(Boston$indus)[1], range(Boston$indus)[2])
+chas <- c(range(Boston$chas)[1], range(Boston$chas)[2])
+nox <- c(range(Boston$nox)[1], range(Boston$nox)[2])
+rm <- c(range(Boston$rm)[1], range(Boston$rm)[2])
+age <- c(range(Boston$age)[1], range(Boston$age)[2])
+dis <- c(range(Boston$dis)[1], range(Boston$dis)[2])
+rad <- c(range(Boston$rad)[1], range(Boston$rad)[2])
+tax <- c(range(Boston$tax)[1], range(Boston$tax)[2])
+ptratio <- c(range(Boston$ptratio)[1], range(Boston$ptratio)[2])
+black <- c(range(Boston$black)[1], range(Boston$black)[2])
+lstat <- c(range(Boston$lstat)[1], range(Boston$lstat)[2])
+frames <- data.frame(crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, black, lstat)
+framed <- rbind(boston.lowest.median, frames)
+boxplot(framed, range = 1.5)
+```
+
+The boxplot shows the given value in the range of all other attributes. For attributes such as age, percentage of black population, it seems to have a higher value in the range. For others, such as proportion of residential land zoned for lots over 25,000 sq.ft, weighted mean of distances to five Boston employment centres, it seems to have been in the lower end of the range.
+
+(h) In this dataset, how many of the suburbs average more than eight rooms per dwelling? What can you say about these suburbs?
+
+```{r}
+Boston %>% filter(rm >= 8) %>% nrow()
+```
+
+13 suburbs average more than eight rooms per dwelling
