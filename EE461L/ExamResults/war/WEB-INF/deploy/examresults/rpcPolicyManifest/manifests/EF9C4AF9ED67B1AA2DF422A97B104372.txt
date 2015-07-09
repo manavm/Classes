@@ -1,0 +1,2 @@
+serviceClass: examresults.client.GreetingService
+path: 9C66AA17895CB6BAFECC71AED00A1F66.gwt.rpc

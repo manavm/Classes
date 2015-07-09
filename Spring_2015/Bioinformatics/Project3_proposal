@@ -1,0 +1,10 @@
+1. I will be using the "Males" dataset in the package "plm". Since this package is built into R, I will purely be importing it. 
+
+2. First question: Which occupation had the highest room for growth in terms of wages?
+Second question: Do wages, experience and years of schooling have an influence on a person's health?
+
+3. First question: For this, I will look at the experience, occupation and wages attributes. Then, for each occupation, I'll plot the wages against years of experience and which industry has the highest growth in wages with years in experience. The plot will be visualized using a scatter plot on ggplot2 and then the plots will be smoothed to visualize the trends.
+
+Second question: Filter out the columns wage, exper, school and health. Run a logistical regression on the linear predictors against health. Plot the result of the regression (scatter plot with line through the points) using ggplot2 and observe whether the linear predictor is able to separate the healthy and non-healthy males.
+
+All the code will be written in R.

@@ -1,0 +1,23 @@
+```{r global_options, include=FALSE}
+library(ggplot2)
+theme_set(theme_bw(base_size=12))
+```
+
+---
+title: "HW10"
+output: html_document
+---
+
+Manav Mandhani, mm58926
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+ecoli <- read.csv(file="Ecoli_K12.csv",head=TRUE,sep=",")
+ecoli
+ggplot(ecoli, aes(x=Codon, y=Occurances)) + geom_bar(stat="identity")
+```
+
+From the barplot shown, there are seven different possible start codons. Out of those, ATG seems to be the most common, followed by GTG and TTG. The rest of the start codons have inconsequentially small values. 

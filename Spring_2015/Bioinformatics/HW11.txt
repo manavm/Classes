@@ -1,0 +1,1 @@
+3. For this question, I was able to transform the alignments to phylip form but when trying to load onto the web service provided, I kept running into errors that were hard to avoid. The errors I ran into are attached as well.

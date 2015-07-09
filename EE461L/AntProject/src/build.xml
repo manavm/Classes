@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AntProject" default="dist" basedir=".">
+	<property name="src.dir" value="."/>
+	<property name="build.dir" value="build"/>
+	<property name="dist.dir" value="dist"/>
+	<property name="dist.jar.dir" value="${dist.dir}/lib"/>
+	<property name="dist.jarfile" value="${dist.jar.dir}/AntProject.jar"/>
+	<target name="init">
+			<!--  write init task(s) here  -->
+			<mkdir dir="${build.dir}"/>
+	</target>
+	<target name="compile" depends="init">
+			<!--  write compile task(s) here  -->
+			<javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false"/>
+	</target>
+	
+	<target name="dist" depends="compile">
+			<!--  add missing task(s) (if any) here  -->
+		<jar jarfile="${dist.jarfile}" basedir="${build.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="usa.texas.austin.HelloWorld"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="run" depends="dist"
+		description="compile the source " >
+		<!-- Compile the java code from ${src} into ${build} -->
+		<java jar="${dist.jarfile}" fork="true"/>
+	</target>
+
+</project>

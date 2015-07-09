@@ -1,0 +1,130 @@
+```{r global_options, include=FALSE}
+library(knitr)
+opts_chunk$set(fig.align="center", fig.height=4, fig.width=5)
+library(ggplot2)
+theme_set(theme_bw(base_size=12))
+library(dplyr)
+library(tidyr)
+library(grid)
+library(plm)
+```
+
+## Project 3 
+
+*Manav Mandhani, mm58926*
+
+**Introduction**
+
+The dataset I will be looking at is the Males dataset which is a part of the 'plm' pakcage. The Males dataset contains data on wages and education of young males between 1980 and 1987. The dataset contains 4360 observations and 12 different attributes. 
+
+Wage contains the log of hourly wages, occupation, industry, ethn and residence are the categorical variables while all others are continuous. 
+
+**Question One**
+
+Which occupation has the highest room for growth in terms of wages, between Sales and Service workers?
+
+```{r}
+# Pick the relevant columns and occupations
+Males %>% select(wage, exper, occupation) %>% group_by(occupation) %>% filter(occupation %in% c("Sales_Workers", "Service_Workers"))-> new_males
+
+# Plot experiance against wages and color by occupation. Smooth the points of the scatter plot by forming a line of best fit
+ggplot(new_males, aes(x=exper, y=wage, color = occupation)) + geom_point() + geom_smooth(aes(group=occupation), method=lm, se=F)
+
+# Create new dataframes using sales and service workers respectively
+Males %>% filter(occupation == "Sales_Workers") -> sales
+Males %>% filter(occupation == "Service_Workers") -> service
+
+# Perform linear regressions on those frames
+fit_sales<-lm(wage~exper, data=sales)
+fit_service<-lm(wage~exper, data=service)
+
+# Outputting summary of the results
+summary(fit_sales)
+summary(fit_service)
+```
+
+
+To solve this question, I plotted the wages of sales and service workers over time on a scatter plot. The blue and red dots had various different wages for different years of experience which made any trend very hard to discern using the points. So, the points were smoothed to provide a linear visualization of all the data points. This showed a slightly higher slope for sales workers over service workers. 
+
+Then, I ran two linear regressions that model the wage against experience for the sales workers and service workers separately. The regressions were performed to determine the slope of the smoothing lines found in the plots above. The p-values for both these regressions were low enough to be considered signifianct. Since the slope of the sales workers (0.07358) was higher than that of service workers (0.049927), it can be concluded that sales workers have a slightly higher room for growth than service workers over time. 
+
+**Question Two**
+
+Can the attributes provided in the Males dataset be used to predict whether a person is married or not?
+
+
+```{r}
+# Logistical regression on all attribtues
+glm.out <- glm(married ~ nr + year + school + exper + union + ethn + health + occupation + wage + industry + residence,
+               data = Males,
+               family = binomial) 
+summary(glm.out)
+
+# Remove residence due to it's high p-value
+glm.out <- glm(married ~ nr + year + school + exper + union + ethn + health + occupation + wage + industry,
+               data = Males,
+               family = binomial) 
+summary(glm.out)
+
+# Remove health due to it's high p-value
+glm.out <- glm(married ~ nr + year + school + exper + union + ethn + occupation + industry + wage,
+               data = Males,
+               family = binomial) 
+summary(glm.out)
+
+# Remove occupation as most of it's categories have a high p-value
+glm.out <- glm(married ~ nr + year + school + exper + union + ethn + industry + wage,
+               data = Males,
+               family = binomial)
+summary(glm.out)
+
+#Remove year due to it's high p-value
+glm.out <- glm(married ~ nr + school + exper + union + ethn + industry + wage,
+               data = Males,
+               family = binomial) 
+summary(glm.out)
+
+# Convert into data frame using predictors and probabilities
+lr_data <- data.frame(predictor=glm.out$linear.predictors, prob=glm.out$fitted.values, Married=Males$married)
+
+# Plot the data using a scatter plot
+ggplot(lr_data, aes(x=predictor, y=prob, color=Married)) + geom_point()
+
+# Function to calculate ROC values
+calc_ROC <- function(probabilities, known_truth, model.name=NULL)
+  {
+  outcome <- as.numeric(factor(known_truth))-1
+  pos <- sum(outcome) # total known positives
+  neg <- sum(1-outcome) # total known negatives
+  pos_probs <- outcome*probabilities # probabilities for known positives
+  neg_probs <- (1-outcome)*probabilities # probabilities for known negatives
+  true_pos <- sapply(probabilities,
+                     function(x) sum(pos_probs>=x)/pos) # true pos. rate
+  false_pos <- sapply(probabilities,
+                     function(x) sum(neg_probs>=x)/neg)
+  if (is.null(model.name))
+    result <- data.frame(true_pos, false_pos)
+  else
+    result <- data.frame(true_pos, false_pos, model.name)
+  result %>% arrange(false_pos, true_pos)
+  }
+
+ROC <- calc_ROC(probabilities=glm.out$fitted.values, # predicted probabilities
+                 known_truth=Males$married,      # the known truth, i.e., true species assignment
+                 model.name="Combined")
+
+# Plot the ROC curve to interpret how good the model is
+ggplot(data=NULL, aes(x=false_pos, y=true_pos)) +
+  geom_line(data=ROC, aes(color=model.name))
+
+# Calculate the value of AUC
+ROC1 %>% mutate(delta=false_pos-lag(false_pos)) %>% 
+  summarize(AUC=sum(delta*true_pos, na.rm=T))
+
+```
+
+First, I performed a logsitical regression on all the attributes provided in the dataset against marriage. Logistical regression can be used to predict binary outputs using categorical and continuous variables which is useful for our task. Using the process of backwards selection, I was able to remove certain attributes until I was left with the following attribtues: nr, school, exper, union, ethn, industry, wage. Although some of the categories in the industry column were not statistically significant, a majority of them were which is why I decided to hold on to the variable. 
+
+After doing the regression, I plotted the data using a logistical curve. Although the data was not perfectly sergregated, the curve mostly had blue dots after a predictor unit of 0 and red dots before. The points seemed to separate at a probability value of ~ 0.6. This shows a decent predictive model of whether a person is married or not. 
+
+To understand how good the model is, I plotted a ROC curve and calculated the Area under the curve, which yielded a value of 0.7228822. This isn't an ideal number of 1 but also does not indicate a random chance. These results lead me to believe that this model is able to predict whether a person is married or not with a decent accuracy but is far from being an ideal model for prediction. 

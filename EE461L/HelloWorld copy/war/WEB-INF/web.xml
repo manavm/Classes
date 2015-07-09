@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>helloworld</servlet-name>
+    <servlet-class>helloworld.HelloWorldServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>helloworld</servlet-name>
+    <url-pattern>/helloworld</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>helloworld.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+        <servlet-name>sign</servlet-name>
+        <servlet-class>helloworld.SignGuestbookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sign</servlet-name>
+        <url-pattern>/sign</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+  <servlet-name>ExamResultsEmailHandler</servlet-name>   
+  <servlet-class> examresults.ExamResultsEmailHandlerServlet  </servlet-class> 
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>ExamResultsEmailHandler</servlet-name>
+	<url-pattern>/_ah/mail/*</url-pattern>
+</servlet-mapping>
+    
+    <servlet>
+<servlet-name>GAEJCronServlet</servlet-name>
+<servlet-class>com.gaejexperiments.cron.GAEJCronServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>GAEJCronServlet</servlet-name>
+<url-pattern>/cron/mycronjob</url-pattern>
+</servlet-mapping>
+
+</web-app>

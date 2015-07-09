@@ -1,0 +1,72 @@
+For 6 threads:
+
+For a lock free queue:
+Execution time is:32ms
+Latency time is:0.00128ms
+Throughput:78125.0 operations per second
+
+For a lock based queue:
+Execution time is:33ms
+Latency time is:0.00132ms
+Throughput:75757.57575757576 operations per second
+----------------------------------------------------
+For 5 threads:
+
+For a lock free queue:
+Execution time is:55ms
+Latency time is:0.0022ms
+Throughput:45454.545454545456 operations per second
+
+For a lock based queue:
+Execution time is:32ms
+Latency time is:0.00128ms
+Throughput:78125.0 operations per second
+----------------------------------------------------
+For 4 threads:
+
+For a lock free queue:
+Execution time is:60ms
+Latency time is:0.0024ms
+Throughput:41666.66666666667 operations per second
+
+For a lock based queue:
+Execution time is:26ms
+Latency time is:0.00104ms
+Throughput:96153.84615384616 operations per second
+----------------------------------------------------
+For 3 threads:
+
+For a lock free queue:
+Execution time is:48ms
+Latency time is:0.00192ms
+Throughput:52083.333333333336 operations per second
+
+For a lock based queue:
+Execution time is:37ms
+Latency time is:0.00148ms
+Throughput:67567.56756756756 operations per second
+----------------------------------------------------
+For 2 threads:
+
+For a lock free queue:
+Execution time is:43ms
+Latency time is:0.00172ms
+Throughput:58139.53488372093 operations per second
+
+For a lock based queue:
+Execution time is:23ms
+Latency time is:9.2E-4ms
+Throughput:108695.65217391305 operations per second
+----------------------------------------------------
+For 1 threads:
+
+For a lock free queue:
+Execution time is:49ms
+Latency time is:0.00196ms
+Throughput:51020.40816326531 operations per second
+
+For a lock based queue:
+Execution time is:22ms
+Latency time is:8.8E-4ms
+Throughput:113636.36363636363 operations per second
+----------------------------------------------------

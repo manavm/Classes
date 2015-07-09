@@ -1,0 +1,2 @@
+serviceClass: helloworld.client.GreetingService
+path: D0F95A7361AF343CFD92104C0644581C.gwt.rpc
